@@ -1,0 +1,5 @@
+package generic;
+
+abstract public class Base_Test {
+
+}

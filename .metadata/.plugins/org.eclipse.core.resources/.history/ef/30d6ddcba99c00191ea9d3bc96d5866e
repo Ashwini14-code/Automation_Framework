@@ -1,0 +1,16 @@
+package generic;
+
+import org.openqa.selenium.WebDriver;
+
+abstract public class BaseTest implements IAutoConstants
+{
+  public WebDriver driver;
+  static
+  {
+	  System.setProperty(CHROME_KEY,CHROME_VALUE);
+	  System.setProperty(GECKO_KEY, GECKO_VALUE);
+  }
+  @BeforeMethod(AlwaysRun=true)
+  public void openApp()
+  {
+}

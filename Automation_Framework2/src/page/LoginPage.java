@@ -39,7 +39,5 @@ public class LoginPage
 	  String actualMSG = errorMSG.getText();
 	  Assert.assertEquals(actualMSG,expectedMSG);
   }
-  
-  
-  
+    
 }

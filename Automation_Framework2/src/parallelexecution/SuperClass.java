@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
@@ -15,7 +16,7 @@ import org.testng.annotations.Parameters;
 public class SuperClass {
 
 	public WebDriver driver;
-	@parameters({"browser"})
+	@Parameters({"browser"})
 	@BeforeMethod
 	
 	public void preCondition(String browser)
@@ -31,7 +32,7 @@ public class SuperClass {
 			driver=new ChromeDriver();
 		}
 		
-		driver.get("http://localhost:8080/login.do");
+		driver.get("https://demo.actitime.com/login.do");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		}

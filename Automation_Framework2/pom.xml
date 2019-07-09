@@ -14,7 +14,18 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+            <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
     </plugins>
+
   </build>
   <dependencies>
   	<dependency>
@@ -22,7 +33,7 @@
   		<artifactId>selenium-java</artifactId>
   		<version>3.141.59</version>
   	</dependency>
-  	<dependency>
+  	  	<dependency>
   		<groupId>org.testng</groupId>
   		<artifactId>testng</artifactId>
   		<version>6.8</version>

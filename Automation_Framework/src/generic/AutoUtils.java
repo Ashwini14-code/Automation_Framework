@@ -2,23 +2,24 @@ package generic;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class AutoUtils {
 
-	public static String getPhoto(WebDriver driver, String folder,String filename)
+	public static String getPhoto(WebDriver driver, String folder,String fileName)
 	{
 		try
 		{
 			String dateTime = new Date().toString().replace(":","_");
 			String path= folder+fileName+dateTime+".png";
-			TakesScreenShot t= (TakesScreenShot)driver;
-			File sourceFile = t.getScreenShotAs(OutputType.FILE);
+			TakesScreenshot t= (TakesScreenshot)driver;
+			File sourceFile = t.getScreenshotAs(OutputType.FILE);
 			File destinationFile= new File(path);
 			FileUtils.copyFile(sourceFile,destinationFile);
 			

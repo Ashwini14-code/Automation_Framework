@@ -2,51 +2,42 @@ package generic;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class AutoUtils {
 
-	public static String getPhoto(WebDriver driver, String folder,String filename)
-	{
-		try
-		{
-			String dateTime = new Date().toString().replace(":","_");
-			String path= folder+fileName+dateTime+".png";
-			TakesScreenShot t= (TakesScreenShot)driver;
-			File sourceFile = t.getScreenShotAs(OutputType.FILE);
-			File destinationFile= new File(path);
-			FileUtils.copyFile(sourceFile,destinationFile);
-			
-		}
-		catch(Exception e)
-		{
-			//TODO : handle exception
+	public static String getPhoto(WebDriver driver, String folder, String fileName) {
+		try {
+			String dateTime = new Date().toString().replace(":", "_");
+			String path = folder + fileName + dateTime + ".png";
+			TakesScreenshot t = (TakesScreenshot) driver;
+			File sourceFile = t.getScreenshotAs(OutputType.FILE);
+			File destinationFile = new File(path);
+			FileUtils.copyFile(sourceFile, destinationFile);
+
+		} catch (Exception e) {
+			// TODO : handle exception
 		}
 		return fileName;
 	}
-	//Method to take value from property file
-	
-	public static String getProperty(String path,String key)
-	{
-		String v="";
-		try
-		{
-			Properties p =new Properties();
+	// Method to take value from property file
+
+	public static String getProperty(String path, String key) {
+		String v = "";
+		try {
+			Properties p = new Properties();
 			p.load(new FileInputStream(path));
-			v=p.getProperty(key);
+			v = p.getProperty(key);
+		} catch (Exception e) {
+			// TODO handle exception
 		}
-		catch(Exception e)
-		{
-			//TODO handle exception
-		}
-		return v;		
-		
-		
-		
+		return v;
+
 	}
 }

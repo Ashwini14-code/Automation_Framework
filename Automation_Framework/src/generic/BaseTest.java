@@ -17,12 +17,12 @@ abstract public class BaseTest implements IAutoConstants
 	  System.setProperty(CHROME_KEY,CHROME_VALUE);
 	  System.setProperty(GECKO_KEY, GECKO_VALUE);
   }
-  @BeforeMethod(AlwaysRun=true)
+  @BeforeMethod(alwaysRun=true)
   public void openApp()
   {
 	  String appURL=AutoUtils.getProperty(CONFIG_PATH,"URL");
 	  String strITO=AutoUtils.getProperty(CONFIG_PATH,"ITO");
-	  longITO= Long.parseLong(strITO);
+	  long ITO= Long.parseLong(strITO);
 	  driver =new ChromeDriver();
 	  driver.get(appURL);
 	  driver.manage().window().maximize();

@@ -21,7 +21,6 @@ INDEX VERSION 1.130+C:\AutomationFramework\AutomationFramework\.metadata\.plugin
 2224427117.index
 1186599411.index
 368682434.index
-2828557812.index
 988789835.index
 1314905792.index
 3078770589.index

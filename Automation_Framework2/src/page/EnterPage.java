@@ -11,56 +11,48 @@ import org.testng.Reporter;
 
 import generic.AutoUtils;
 import generic.IAutoConstants;
-import junit.framework.Assert;
+import org.testng.Assert;
 
 public class EnterPage {
 
-	@FindBy(xpath="//div[contains(text(),'Help')]")
+	@FindBy(xpath = "//div[contains(text(),'Help')]")
 	private WebElement help;
-	@FindBy(linkText="About your actiTime")
+	@FindBy(linkText = "About your actiTime")
 	private WebElement aboutAT;
-	@FindBy(xpath="//span[@class='productVersion']")
+	@FindBy(xpath = "//span[@class='productVersion']")
 	private WebElement version;
-	
-	public EnterPage(WebDriver driver)
-	{
+
+	public EnterPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	
-	//Methods
-	public void clickHelp()
-	{
+
+	// Methods
+	public void clickHelp() {
 		help.click();
 	}
-	public void clickAboutActiTime()
-	{
+
+	public void clickAboutActiTime() {
 		aboutAT.click();
 	}
-	public void verifyProductVersion(String ExpectedVersion)
-	{
-	 	String ActualVersion = version.getText();
-	 	Assert.assertEquals(ActualVersion,ExpectedVersion);
+
+	public void verifyProductVersion(String ExpectedVersion) {
+		String ActualVersion = version.getText();
+		Assert.assertEquals(ActualVersion, ExpectedVersion);
 	}
-	public void verifyHomePageDisplayed(WebDriver driver, String eTitle)
-	{
-		String strETO =AutoUtils.getProperty(IAutoConstants.CONFIG_PATH,"ETO");
+
+	public void verifyHomePageDisplayed(WebDriver driver, String eTitle) {
+		String strETO = AutoUtils.getProperty(IAutoConstants.CONFIG_PATH, "ETO");
 		long ETO = Long.parseLong(strETO);
-		WebDriverWait wait = new WebDriverWait(driver,ETO);
-		try
-		{
+		WebDriverWait wait = new WebDriverWait(driver, ETO);
+		try {
 			wait.until(ExpectedConditions.titleIs(eTitle));
-			Reporter.log("Homepage is displayed",true);
-		}
-		catch(Exception e)
+			Reporter.log("Homepage is displayed", true);
+		} catch (Exception e)
 		{
-			Reporter.log("Homepage not displayed",true);
+			Reporter.log("Homepage not displayed", true);
 			Assert.fail();
 		}
 
-		
-		
 	}
-	
-	
-	
+
 }
